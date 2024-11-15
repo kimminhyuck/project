@@ -1,13 +1,13 @@
 package org.zerock.service;
 
-import org.zerock.domain.Board;
+import org.zerock.domain.BoardVO;
 
 import java.util.List;
 
 public interface BoardService {
-    void register(Board board);
-    Board get(Long bno);
-    void modify(Board board);
+    void register(BoardVO board);
+    BoardVO get(Long bno);
+    void modify(BoardVO board);
     void remove(Long bno);
-    List<Board> getList();
+    List<BoardVO> getList();
 }
