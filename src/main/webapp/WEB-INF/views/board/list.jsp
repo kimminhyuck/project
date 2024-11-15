@@ -21,7 +21,7 @@
                 <td><a href="read?bno=${board.bno}">${board.title}</a></td>
                 <td>${board.writer}</td>
                 <td>
-                    <a href="modify?bno=${board.bno}">수정</a>
+                    <a href="modify?bno=${board.bno}">Modify</a>
                     <form action="delete" method="post" style="display:inline;">
                         <input type="hidden" name="bno" value="${board.bno}" />
                         <input type="submit" value="Delete" />

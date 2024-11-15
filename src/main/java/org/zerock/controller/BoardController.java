@@ -1,6 +1,6 @@
 package org.zerock.controller;
 
-import org.zerock.domain.BoardVO;
+import org.zerock.domain.Board;
 import org.zerock.service.BoardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,7 +18,7 @@ public class BoardController {
 
     @GetMapping("/list")
     public String list(Model model) {
-        List<BoardVO> boards = boardService.getList();
+        List<Board> boards = boardService.getList();
         model.addAttribute("boards", boards);
         return "board/list";
     }
@@ -29,27 +29,27 @@ public class BoardController {
     }
 
     @PostMapping("/register")
-    public String register(BoardVO board) {
+    public String register(Board board) {
         boardService.register(board);
         return "redirect:/board/list";
     }
 
     @GetMapping("/read")
     public String read(@RequestParam("bno") Long bno, Model model) {
-        BoardVO board = boardService.get(bno);
+        Board board = boardService.get(bno);
         model.addAttribute("board", board);
         return "board/read";
     }
 
     @GetMapping("/modify")
     public String modify(@RequestParam("bno") Long bno, Model model) {
-        BoardVO board = boardService.get(bno);
+        Board board = boardService.get(bno);
         model.addAttribute("board", board);
         return "board/modify";
     }
 
     @PostMapping("/modify")
-    public String modify(BoardVO board) {
+    public String modify(Board board) {
         boardService.modify(board);
         return "redirect:/board/list";
     }
